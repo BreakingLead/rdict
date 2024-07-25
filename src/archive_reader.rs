@@ -212,9 +212,9 @@ pub fn display_word_info(info: WordInfo) {
         info.pattern.blue(),
     );
 
-    for i in info.usages {
-        println!("{} {}", i.word_class.red(), i.usage.green());
-        for j in i.examples {
+    for (n, i) in info.usages.iter().enumerate() {
+        println!("{n}. {} {}", i.word_class.red(), i.usage.green());
+        for j in i.examples.iter() {
             println!("\t{}\n\t{}", j.origin.cyan(), j.translation.blue());
         }
         println!();
